@@ -5,13 +5,12 @@ namespace ef_core_mastering.Context;
 
 public partial class SpeedrunsContext : DbContext
 {
+    private int _userId;
+
     public SpeedrunsContext()
     {
-    }
-
-    public SpeedrunsContext(DbContextOptions<SpeedrunsContext> options)
-        : base(options)
-    {
+        //get user id from DI
+        _userId = 0;
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -51,6 +50,12 @@ public partial class SpeedrunsContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // soft deleting example
+        modelBuilder.Entity<Category>().HasQueryFilter(c => !c.SoftDeleted);
+
+        // multitenant system: auth proto
+        modelBuilder.Entity<User>().HasQueryFilter(u => u.Id == _userId);
+
         modelBuilder.Entity<Approve>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("approves_pkey");
@@ -354,6 +359,4 @@ public partial class SpeedrunsContext : DbContext
 
         OnModelCreatingPartial(modelBuilder);
     }
-
-    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

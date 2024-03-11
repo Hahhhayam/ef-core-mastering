@@ -10,4 +10,7 @@ public partial class Category
     public string Name { get; set; } = null!;
 
     public ICollection<Run> Runs { get; set; } = null!;
+
+    //soft deleting example
+    public bool SoftDeleted { get; set; }
 }

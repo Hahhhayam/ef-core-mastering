@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ef_core_mastering.Models;
+﻿namespace ef_core_mastering.Models;
 
 public partial class ContactsUser
 {
