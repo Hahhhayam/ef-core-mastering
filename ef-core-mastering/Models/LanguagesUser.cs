@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ef_core_mastering.Models;
+﻿namespace ef_core_mastering.Models;
 
 public partial class LanguagesUser
 {
@@ -11,7 +8,7 @@ public partial class LanguagesUser
 
     public int LanguageId { get; set; }
 
-    public virtual Language Language { get; set; } = null!;
+    public Language Language { get; set; } = null!;
 
-    public virtual User User { get; set; } = null!;
+    public User User { get; set; } = null!;
 }

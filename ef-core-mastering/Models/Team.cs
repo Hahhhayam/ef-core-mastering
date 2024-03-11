@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ef_core_mastering.Models;
+﻿namespace ef_core_mastering.Models;
 
 public partial class Team
 {
@@ -11,7 +8,7 @@ public partial class Team
 
     public int SpeedrunnerId { get; set; }
 
-    public virtual Run Run { get; set; } = null!;
+    public Run Run { get; set; } = null!;
 
-    public virtual User Speedrunner { get; set; } = null!;
+    public User Speedrunner { get; set; } = null!;
 }

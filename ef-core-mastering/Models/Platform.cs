@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ef_core_mastering.Models;
+﻿namespace ef_core_mastering.Models;
 
 public partial class Platform
 {
@@ -9,5 +6,5 @@ public partial class Platform
 
     public string Name { get; set; } = null!;
 
-    public virtual ICollection<GamesPlatform> GamesPlatforms { get; set; } = new List<GamesPlatform>();
+    public ICollection<GamesPlatform> GamesPlatforms { get; set; } = null!;
 }

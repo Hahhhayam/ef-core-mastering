@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ef_core_mastering.Models;
+﻿namespace ef_core_mastering.Models;
 
 public partial class Run
 {
@@ -17,11 +14,8 @@ public partial class Run
 
     public DateTime Uploaded { get; set; }
 
-    public virtual ICollection<Approve> Approves { get; set; } = new List<Approve>();
-
-    public virtual Category Category { get; set; } = null!;
-
-    public virtual GamesPlatform GamePlatform { get; set; } = null!;
-
-    public virtual ICollection<Team> Teams { get; set; } = new List<Team>();
+    public ICollection<Approve> Approves { get; set; } = null!;
+    public Category Category { get; set; } = null!;
+    public GamesPlatform GamePlatform { get; set; } = null!;
+    public ICollection<Team> Teams { get; set; } = null!;
 }
