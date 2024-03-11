@@ -15,14 +15,23 @@ namespace ef_core_mastering.DatedServices
             //if two users has one country, both have different countries as a object 
             _context.Users
                 .AsNoTracking()
-                .Include(c => c.CountryId);
+                .Include(u => u.CountryId);
 
             //returns readonly
             //now this county is one object
             _context.Users
                 .AsNoTrackingWithIdentityResolution()
-                .Include(c => c.CountryId);
+                .Include(u => u.CountryId);
         }
+
+        public static void groupings() 
+        {
+            //use nullable variables with aggregate ops:
+            _context.Runs
+                .AsNoTrackingWithIdentityResolution()
+                .Max(r => (int?)r.Id);
+        }
+
 
 
     }
